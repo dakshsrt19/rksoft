@@ -9,14 +9,17 @@ namespace RKSoft.eShop.Api
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             // Register Repositories
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IStoreRepository, StoreRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+
 
             // Register Services
             services.AddScoped<IStoreService, StoreService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }

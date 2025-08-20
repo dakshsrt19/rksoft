@@ -11,9 +11,10 @@ namespace RKSoft.eShop.App.DTOs
     {
         public int Id { get; set; }
 
-        [Required]
-        public string RoleName { get; set; }
-        public string Description { get; set; }
+        [Required(ErrorMessage = "Role name is required.")]
+        public string RoleName { get; set; } = string.Empty;
+
+        public string? Description { get; set; }
 
         [Required]
         public bool IsActive { get; set; }

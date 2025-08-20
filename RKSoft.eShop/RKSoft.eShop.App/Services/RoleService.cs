@@ -40,5 +40,10 @@ namespace RKSoft.eShop.App.Services
         {
             return await _RoleRepository.UpdateAsync(dbRecord);
         }
+
+        public async Task<List<UserRoleMapping>> GetRolesByUserAsync(User dbRecord)
+        {
+            return await _RoleRepository.GetUserRolesAsync(dbRecord);
+        }
     }
 }

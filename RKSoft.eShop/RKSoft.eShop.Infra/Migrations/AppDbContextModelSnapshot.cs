@@ -472,6 +472,10 @@ namespace RKSoft.eShop.Infra.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -500,6 +504,8 @@ namespace RKSoft.eShop.Infra.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserTypeId");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -632,6 +638,18 @@ namespace RKSoft.eShop.Infra.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("RKSoft.eShop.Domain.Entities.User", b =>
+                {
+                    b.HasOne("RKSoft.eShop.Domain.Entities.UserType", "UserType")
+                        .WithMany("Users")
+                        .HasForeignKey("UserTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_Users_UserTypes");
+
+                    b.Navigation("UserType");
+                });
+
             modelBuilder.Entity("RKSoft.eShop.Domain.Entities.UserRoleMapping", b =>
                 {
                     b.HasOne("RKSoft.eShop.Domain.Entities.Role", "Role")
@@ -678,6 +696,11 @@ namespace RKSoft.eShop.Infra.Migrations
             modelBuilder.Entity("RKSoft.eShop.Domain.Entities.User", b =>
                 {
                     b.Navigation("UserRoleMappings");
+                });
+
+            modelBuilder.Entity("RKSoft.eShop.Domain.Entities.UserType", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

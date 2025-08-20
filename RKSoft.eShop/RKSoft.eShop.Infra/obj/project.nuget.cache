@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/WeTIwRZ7g0=",
+  "dgSpecHash": "cWgD6CgHL8A=",
   "success": true,
-  "projectFilePath": "E:\\Git Projects\\eCommerce\\RKSoft.eShop\\RKSoft.eShop.Infra\\RKSoft.eShop.Infra.csproj",
+  "projectFilePath": "E:\\Git_Projects\\rksoft\\RKSoft.eShop\\RKSoft.eShop.Infra\\RKSoft.eShop.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daksh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\daksh\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

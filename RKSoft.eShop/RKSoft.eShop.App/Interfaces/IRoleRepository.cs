@@ -9,5 +9,6 @@ namespace RKSoft.eShop.App.Interfaces
 {
     public interface IRoleRepository : IAppRepository<Role>
     {
+        Task<List<UserRoleMapping>> GetUserRolesAsync(User dbRecord);
     }
 }

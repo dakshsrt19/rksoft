@@ -26,12 +26,6 @@ namespace RKSoft.eShop.Infra.Config
                    .HasForeignKey(n => n.RoleId)
                    .HasConstraintName("FK_UserRoleMappings_Roles");
                    //.OnDelete(DeleteBehavior.Cascade); // Assuming you want to cascade delete
-
-            builder.HasOne(n => n.User)
-                   .WithMany(u => u.UserRoleMappings)
-                   .HasForeignKey(n => n.UserId)
-                   .HasConstraintName("FK_UserRoleMappings_Users");
-            //.OnDelete(DeleteBehavior.Cascade); // Assuming you want to cascade delete
         }
     }
 }

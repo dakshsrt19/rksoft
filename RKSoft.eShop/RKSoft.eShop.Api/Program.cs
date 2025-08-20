@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RKSoft.eShop.Api;
 using RKSoft.eShop.App.Interfaces;
+using RKSoft.eShop.App.Services;
 using RKSoft.eShop.Infra.Data;
 using RKSoft.eShop.Infra.Repos;
 using RKSoft.eShop.Infra.Repositories;
@@ -42,9 +43,9 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
-        ValidAudience = builder.Configuration["JwtConfig:Audience"],
-        IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:Key"]!)),
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
 
     };
 });
@@ -59,6 +60,8 @@ builder.Services.AddAutoMapper(cfg => {
 });
 
 builder.Services.AddScoped(typeof(IAppRepository<>), typeof(AppRepository<>));
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<RoleService>();
 builder.Services.RegisterServices();
 
 builder.Services.AddCors(options =>
