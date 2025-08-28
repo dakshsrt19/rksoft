@@ -16,6 +16,12 @@ E:\Git Projects\eCommerce\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSof
 E:\Git Projects\eCommerce\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\refint\RKSoft.eShop.Infra.dll
 E:\Git Projects\eCommerce\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.pdb
 E:\Git Projects\eCommerce\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\ref\RKSoft.eShop.Infra.dll
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.csproj.AssemblyReference.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.AssemblyInfoInputs.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.AssemblyInfo.cs
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.csproj.CoreCompileInputs.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.sourcelink.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.Infra.deps.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.Infra.dll
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.Infra.pdb
@@ -23,12 +29,6 @@ E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.e
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.Domain.dll
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.App.pdb
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\bin\Debug\net8.0\RKSoft.eShop.Domain.pdb
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.csproj.AssemblyReference.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.GeneratedMSBuildEditorConfig.editorconfig
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.AssemblyInfoInputs.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.AssemblyInfo.cs
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.csproj.CoreCompileInputs.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.sourcelink.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.e.A68845B0.Up2Date
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\RKSoft.eShop.Infra.dll
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Infra\obj\Debug\net8.0\refint\RKSoft.eShop.Infra.dll

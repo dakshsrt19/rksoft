@@ -2070,10 +2070,6 @@
         "additionalProperties": false
       },
       "StoreDTO": {
-        "required": [
-          "status",
-          "storeName"
-        ],
         "type": "object",
         "properties": {
           "id": {
@@ -2084,9 +2080,23 @@
             "type": "string",
             "nullable": true
           },
-          "status": {
+          "description": {
             "type": "string",
             "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

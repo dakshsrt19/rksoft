@@ -1,3 +1,11 @@
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.csproj.AssemblyReference.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.AssemblyInfoInputs.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.AssemblyInfo.cs
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.csproj.CoreCompileInputs.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.MvcApplicationPartsAssemblyInfo.cache
+E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.sourcelink.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\appsettings.Development.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\appsettings.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\RKSoft.eShop.Api.staticwebassets.endpoints.json
@@ -250,15 +258,7 @@ E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\RKSoft.eSh
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\RKSoft.eShop.App.pdb
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\RKSoft.eShop.Domain.pdb
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\bin\Debug\net8.0\RKSoft.eShop.Infra.pdb
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.csproj.AssemblyReference.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\rpswa.dswa.cache.json
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.GeneratedMSBuildEditorConfig.editorconfig
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.AssemblyInfoInputs.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.AssemblyInfo.cs
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.csproj.CoreCompileInputs.cache
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.MvcApplicationPartsAssemblyInfo.cs
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.MvcApplicationPartsAssemblyInfo.cache
-E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\RKSoft.eShop.Api.sourcelink.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\rjimswa.dswa.cache.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 E:\Git_Projects\rksoft\RKSoft.eShop\RKSoft.eShop.Api\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

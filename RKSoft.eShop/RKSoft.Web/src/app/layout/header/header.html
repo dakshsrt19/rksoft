@@ -1,0 +1,284 @@
+<!-- Header Section Start -->
+    <div class="header">
+
+      <!-- Start Top Bar -->
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-2">
+              <div class="language-wrapper">
+                <div class="box-language">
+                  <form id="form-language">
+                    <div class="btn-group toggle-wrap">
+                      <span class="toggle">
+                        <span><img src="assets/img/language/flag-lang.png" alt="English" title="English" height="11" width="16"> English</span>
+                        <span class="hidden">Language</span>
+                      </span>
+                      <ul style="display: none;" class="toggle_cont pull-right">
+                        <li>
+                        <button class="language-select selected" type="button" name="en-gb">
+                        <img src="assets/img/language/en-gb.png" alt="English" title="English" height="11" width="16">
+                        English </button>
+                        </li>
+                        <li>
+                        <button class="language-select" type="button" name="de-DE">
+                        <img src="assets/img/language/de-DE.png" alt="Deutsch" title="Deutsch" height="11" width="16">
+                        Deutsch </button>
+                        </li>
+                        <li>
+                        <button class="language-select" type="button" name="ru-ru">
+                        <img src="assets/img/language/ru-ru.png" alt="Русский" title="Русский" height="11" width="16">
+                        Русский </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+                <div class="box-currency">
+                  <form method="post" id="form-currency">
+                    <div class="btn-group toggle-wrap">
+                      <span class="toggle">
+                        $USD
+                      </span>
+                      <ul class="toggle_cont pull-right">
+                        <li>
+                        <button class="currency-select selected" type="button" name="USD">
+                        $ USD </button>
+                        </li>
+                        <li>
+                        <button class="currency-select" type="button" name="EUR">
+                        € EUR
+                        </button>
+                        </li>
+                        <li>
+                        <button class="currency-select" type="button" name="GBP">
+                        £ GBP </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+                <a [routerLink]="['/dashboard']"><i class="icon-phone"></i> Call Us: (123) 456- 789</a>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="col-md-8 col-sm-10">
+              <!-- shopping cart end -->
+              <div class="search-area">
+                <form>
+                  <div class="control-group">
+                    <ul class="categories-filter animate-dropdown">
+                      <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" [routerLink]="['/dashboard']">Categories <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated fadeIn">
+                          <li class="menu-header">Clothing</li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Men</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Women</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Boys</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Girls</a></li>
+                          <li class="menu-header">Electronics</li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Laptops</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Desktops</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Cameras</a></li>
+                          <li><a tabindex="-1" [routerLink]="['/dashboard']">- Mobile Phones</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <input class="search-field" placeholder="Search here...">
+                    <a class="search-button" [routerLink]="['/dashboard']"><i class="icon-magnifier"></i></a>
+                  </div>
+                </form>
+              </div>
+
+              <div class="shop-cart">
+                <ul>
+                  <li><a class="cart-icon cart-btn" [routerLink]="['/dashboard']"><span class="icon-heart"></span></a></li>
+                  <li>
+                    <a [routerLink]="['/dashboard']" class="cart-icon cart-btn"><i class="icon-basket"></i><span class="cart-label">3</span></a>
+                    <div class="cart-box">
+                      <div class="popup-container">
+                        <div class="cart-entry">
+                          <a [routerLink]="['/dashboard']" class="image">
+                            <img src="assets/img/products/product-menu-1.jpg"  alt="">
+                          </a>
+                          <div class="content">
+                            <a [routerLink]="['/dashboard']" class="title">Pullover Batwing</a>
+                            <p class="quantity">Quantity: 3</p>
+                            <span class="price">$45.00</span>
+                          </div>
+                          <div class="button-x">
+                            <i class="icon-close"></i>
+                          </div>
+                        </div>
+                        <div class="cart-entry">
+                          <a [routerLink]="['/dashboard']" class="image">
+                            <img src="assets/img/products/product-menu-2.jpg"  alt="">
+                          </a>
+                          <div class="content">
+                            <a [routerLink]="['/dashboard']" class="title">Pullover Batwing</a>
+                            <p class="quantity">Quantity: 3</p>
+                            <span class="price">$90.00</span>
+                          </div>
+                          <div class="button-x">
+                            <i class="icon-close"></i>
+                          </div>
+                        </div>
+                        <div class="summary">
+                          <div class="subtotal">Sub Total</div>
+                          <div class="price-s">$210.5</div>
+                        </div>
+                        <div class="cart-buttons">
+                            <a [routerLink]="['/dashboard']" class="btn btn-border-2">View Cart</a>
+                            <a [routerLink]="['/dashboard']" class="btn btn-common">Checkout</a>
+                            <div class="clear"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="account link-inline">
+                <a *ngIf="!loggedIn" [routerLink]="['/login']"><i class="icon-login"></i><span class="hidden-mobile">login</span></a>
+                <a *ngIf="loggedIn" (click)="logout()"><i class="icon-login"></i><span class="hidden-mobile">Logout {{user.username}}</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+      <!-- Start  Logo & Naviagtion  -->
+      <nav class="navbar navbar-default" data-spy="affix" data-offset-top="50">
+        <div class="container">
+          <div class="row">
+            <div class="navbar-header">
+              <!-- Stat Toggle Nav Link For Mobiles -->
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand" [routerLink]="['/dashboard']">
+               <img src="assets/img/daksh_logo.png" alt="RKSoft">
+              </a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <!-- Start Navigation List -->
+              <ul class="nav navbar-nav navbar-right">
+                <li class="drop">
+                  <a class="active" [routerLink]="['/dashboard']">Home</a>
+                </li>
+                <li class="drop">
+                  <a [routerLink]="['/stores']">Masters <span class="caret"></span></a>
+                  <div class="dropdown mega-menu megamenu1">
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-12">
+                        <ul class="menulinks">
+                          <li class="maga-menu-title">
+                            <a [routerLink]="['/stores']">Admin</a>
+                          </li>
+                          <li><a [routerLink]="['/stores']">Stores</a></li>
+
+                        </ul>
+                      </div>
+                      <div class="col-sm-3 col-xs-12">
+                        <ul class="menulinks">
+                          <li class="maga-menu-title">
+                            <a [routerLink]="['/dashboard']">Women</a>
+                          </li>
+                          <li><a [routerLink]="['/stores']">Handbags</a></li>
+
+                        </ul>
+                      </div>
+                      <div class="col-sm-5 col-sm-offset-1 col-xs-12">
+                        <span class="block-last">
+                          <img src="assets/img/block_menu.jpg"  alt="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- End Navigation List -->
+            </div>
+          </div>
+        </div>
+        <!-- End Header Logo & Naviagtion -->
+
+        <!-- Mobile Menu Start -->
+        <ul class="mobile-menu">
+          <li>
+            <a class="active" [routerLink]="['/dashboard']">
+              Home
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a class="active" [routerLink]="['/dashboard']">Home V1</a>
+              </li>
+              <li>
+                <a [routerLink]="['/dashboard']">Home V2</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">About</a>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">Catalog</a>
+            <ul class="dropdown menulinks">
+              <li class="maga-menu-title">
+                <a [routerLink]="['/dashboard']">Men</a>
+              </li>
+              <li><a [routerLink]="['/dashboard']">Clothing</a></li>
+              <li><a [routerLink]="['/dashboard']">Handbags</a></li>
+              <li><a [routerLink]="['/dashboard']">Maternity</a></li>
+              <li><a [routerLink]="['/dashboard']">Jewelry</a></li>
+              <li><a [routerLink]="['/dashboard']">Scarves</a></li>
+              <li class="maga-menu-title">
+                <a [routerLink]="['/dashboard']">Women</a>
+              </li>
+              <li><a [routerLink]="['/dashboard']">Handbags</a></li>
+              <li><a [routerLink]="['/dashboard']">Jewelry</a></li>
+              <li><a [routerLink]="['/dashboard']">Clothing</a></li>
+              <li><a [routerLink]="['/dashboard']">Watches</a></li>
+              <li><a [routerLink]="['/dashboard']">Hats</a></li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">Shop</a>
+            <ul class="menulinks">
+              <li class="maga-menu-title">
+                <a [routerLink]="['/dashboard']">Normal Shop Pages</a>
+              </li>
+              <li><a [routerLink]="['/dashboard']">Single Category</a></li>
+
+              <li class="maga-menu-title">
+                <a [routerLink]="['/dashboard']">Multi-vendor Pages</a>
+              </li>
+              <li><a [routerLink]="['/dashboard']">Product Submission</a></li>
+
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">Pages</a>
+            <ul class="dropdown">
+              <li>
+                <a [routerLink]="['/dashboard']">About Us</a>
+              </li>
+
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">Blog</a>
+            <ul class="dropdown">
+              <li>
+                <a [routerLink]="['/dashboard']">Blog Right Sidebar</a>
+              </li>
+
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/dashboard']">Contact</a>
+          </li>
+        </ul>
+        <!-- Mobile Menu End -->
+      </nav>
+    </div>
+    <!-- Header Section End -->
