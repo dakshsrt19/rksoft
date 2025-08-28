@@ -71,8 +71,8 @@
           (ngModelChange)="currentPage = 1"
         />
       </div>
-      <div class="col-md-6 col-xs-12"></div>
-      <div class="col-md-3 col-xs-12">
+      
+      <div class="col-md-9 col-xs-12">
         <nav *ngIf="totalPages > 1" class="pull-right">
           <ul class="pagination justify-content-center">
             <li class="page-item" [class.disabled]="currentPage === 1">
@@ -112,16 +112,29 @@
         <thead>
           <tr>
             <th width="5%">Id</th>
-            <th width="25%">Name</th>
-            <th width="35%">Description</th>
-            <th width="15%">Created on</th>
+            <th width="25%" (click)="setSort('storeName')">
+              Name
+              <span *ngIf="sortKey === 'storeName'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="35%" (click)="setSort('description')">Description
+              <span *ngIf="sortKey === 'description'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="15%"(click)="setSort('createdAt')">Created on
+              <span *ngIf="sortKey === 'createdAt'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
             <th width="10%">Status</th>
             <th width="10%">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of paginatedStores; index as i">
-            <td align="center">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+           <td align="center">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
             <td>{{ item.storeName }}</td>
             <td>{{ item.description }}</td>
             <td align="center">{{ item.createdAt | date : 'dd-MM-yyyy' }}</td>
