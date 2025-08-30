@@ -71,7 +71,7 @@
           (ngModelChange)="currentPage = 1"
         />
       </div>
-      
+
       <div class="col-md-9 col-xs-12">
         <nav *ngIf="totalPages > 1" class="pull-right">
           <ul class="pagination justify-content-center">
@@ -108,7 +108,7 @@
     </div>
 
     <div class="custom-scrollbar">
-      <table class="table table-responsive table-hover custom-table">
+      <table class="table table-responsive table-hover">
         <thead>
           <tr>
             <th width="5%">Id</th>
@@ -156,7 +156,7 @@
               </span>
             </td>
             <td align="center">
-              <a href="#" (click)="editItem(item); $event.preventDefault()" title="Edit">
+              <a *ngIf="item.isActive == true" href="#" (click)="editItem(item); $event.preventDefault()" title="Edit">
                 <i class="icon-pencil text-primary" style="cursor: pointer"></i>
               </a>
               <a

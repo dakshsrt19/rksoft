@@ -4,9 +4,10 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { Login } from './pages/login/login';
 import { Stores } from './pages/stores/stores';
 import { RoleGuard } from './pages/services/role.guard';
+import { Category } from './pages/stores/category/category';
 
 export const routes: Routes = [
-{ path: '', component: Login, pathMatch: 'full' },
+  { path: '', component: Login, pathMatch: 'full' },
   { path: 'login', component: Login },
   {
     path: '',
@@ -14,8 +15,16 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: Dashboard },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'stores', component: Stores,canActivate: [RoleGuard],
-  data: { roles: ['Admin'] } },
+      {
+        path: 'stores',
+        component: Stores,
+        canActivate: [RoleGuard],
+        data: { roles: ['Admin'] }
+      },
+      {
+        path: 'category',
+        component: Category,
+      }
     ]
   },
   { path: '**', redirectTo: 'login' }

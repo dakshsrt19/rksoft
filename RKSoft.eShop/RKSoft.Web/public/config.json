@@ -1,0 +1,6 @@
+{
+  "apiUrls": {
+    "stores": "https://localhost:7039/api/store",
+    "categories": "https://localhost:7039/api/category"
+  }
+}

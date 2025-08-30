@@ -1,10 +1,4 @@
 ﻿using RKSoft.eShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RKSoft.eShop.App.DTOs
 {
@@ -12,7 +6,14 @@ namespace RKSoft.eShop.App.DTOs
     {
         public int Id { get; set; }
         public string CategoryName { get; set; } = string.Empty;
-        public int SoreId { get; set; }
-        public virtual EStore Store { get; set; } = null!;
+        public string? Description { get; set; }
+        public int StoreId { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+        // ✅ Avoid EF entities in DTO
+        public string? StoreName { get; set; }
     }
 }

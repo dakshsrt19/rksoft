@@ -22,11 +22,11 @@ namespace RKSoft.eShop.Infra.Config
             builder.Property(n => n.CreatedAt).IsRequired();
             builder.Property(n => n.UpdatedAt).IsRequired();
 
-            builder.HasOne(n => n.EStore)
-                   .WithMany(n => n.Categories)
-                   .HasForeignKey(n => n.StoreId)
-                   .HasConstraintName("FK_Categories_Stores");
-                   //.OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(c => c.Store)
+              .WithMany(s => s.Categories)
+              .HasForeignKey(c => c.StoreId)
+              .HasConstraintName("FK_Categories_Stores")
+              .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

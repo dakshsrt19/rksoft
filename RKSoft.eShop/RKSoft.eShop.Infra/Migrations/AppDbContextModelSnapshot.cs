@@ -39,7 +39,6 @@ namespace RKSoft.eShop.Infra.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -151,7 +150,6 @@ namespace RKSoft.eShop.Infra.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -559,14 +557,14 @@ namespace RKSoft.eShop.Infra.Migrations
 
             modelBuilder.Entity("RKSoft.eShop.Domain.Entities.Category", b =>
                 {
-                    b.HasOne("RKSoft.eShop.Domain.Entities.EStore", "EStore")
+                    b.HasOne("RKSoft.eShop.Domain.Entities.EStore", "Store")
                         .WithMany("Categories")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_Categories_Stores");
 
-                    b.Navigation("EStore");
+                    b.Navigation("Store");
                 });
 
             modelBuilder.Entity("RKSoft.eShop.Domain.Entities.CustomerAddress", b =>
@@ -663,8 +661,7 @@ namespace RKSoft.eShop.Infra.Migrations
                         .WithMany("UserRoleMappings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_UserRoleMappings_Users");
+                        .IsRequired();
 
                     b.Navigation("Role");
 

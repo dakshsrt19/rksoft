@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.JsonPatch;
 using RKSoft.eShop.App.DTOs;
 using RKSoft.eShop.App.Interfaces;
 using RKSoft.eShop.Domain.Entities;
@@ -26,8 +27,11 @@ namespace RKSoft.eShop.App.Services
         {
             return await _storeRepository.GetAllAsync();
         }
-       
-        
+        public async Task<List<EStore>> GetAllActiveStoreAsync(Expression<Func<EStore, bool>> filter)
+        {
+            return await _storeRepository.GetAllActiveAsync(filter);
+        }
+
         public async Task<EStore> GetStoreByIdAsync(Expression<Func<EStore, bool>> filter, bool useNoTracking = false)
         {
             return await _storeRepository.GetByIdAsync(filter, useNoTracking);
@@ -40,6 +44,15 @@ namespace RKSoft.eShop.App.Services
         public async Task<EStore> UpdateStoreAsync(EStore dbRecord)
         {
            return await _storeRepository.UpdateAsync(dbRecord);
+        }
+
+        public async Task<EStore?> PartialUpdateStoreAsync(EStore updatedStore)
+        {
+            var existing = await _storeRepository.GetByIdAsync(s => s.Id == updatedStore.Id);
+            if (existing == null) return null;
+
+            return await _storeRepository.UpdateAsync(existing);
+
         }
     }
 }

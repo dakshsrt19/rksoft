@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "00cccAq9sWo=",
+  "dgSpecHash": "RHVtxfARLUE=",
   "success": true,
   "projectFilePath": "E:\\Git_Projects\\rksoft\\RKSoft.eShop\\RKSoft.eShop.App\\RKSoft.eShop.App.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\daksh\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.18\\microsoft.aspnetcore.jsonpatch.8.0.18.nupkg.sha512",
+    "C:\\Users\\daksh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\daksh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

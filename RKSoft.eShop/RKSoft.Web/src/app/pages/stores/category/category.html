@@ -1,0 +1,223 @@
+<div class="contact-form-wrapper">
+  <div class="container div-outer">
+    <div class="row div-header">
+      <div class="col-md-6 col-xs-12"><h4>Add New Category</h4></div>
+      <div class="col-md-6 col-xs-12"><h5 class="pull-right"></h5></div>
+    </div>
+    <div class="div-content">
+      <div class="col-md-12">
+        <form class="contact-form" #CategoryForm="ngForm" (ngSubmit)="onSubmit(CategoryForm)">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="form-lable">Select Store :</div>
+                <select
+                  id="storeId"
+                  class="form-control"
+                  name="storeId"
+                  required
+                  [(ngModel)]="_category.storeId" >
+                  <!-- Default option -->
+                  <option value="0" disabled selected>Select</option>
+                  <option *ngFor="let store of _stores" [value]="store.id">
+                    {{ store.storeName }}
+                  </option>
+                </select>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="form-lable">Category Name :</div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Name of the new Category"
+                  required
+                  [(ngModel)]="_category.categoryName"
+                />
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="form-lable">Description :</div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  placeholder="Description"
+                  required
+                  [(ngModel)]="_category.description"
+                />
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-label"><br /></div>
+              <button type="submit" class="btn btn-primary" [disabled]="CategoryForm.invalid">
+                {{ _category.id ? 'Update' : 'Save' }}
+              </button>
+              <div id="msgSubmit" class="h3 text-center hidden"></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-info div-break">
+  <div class="container div-outer">
+    <div class="row div-header">
+      <div class="col-md-6 col-xs-12"><h4>List of Categorys</h4></div>
+      <div class="col-md-6 col-xs-12">
+        <h5 class="pull-right">No. of Records Listed : {{ _categories.length }}</h5>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-3 col-xs-12">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search Categorys..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="currentPage = 1"
+        />
+      </div>
+
+      <div class="col-md-9 col-xs-12">
+        <nav *ngIf="totalPages > 1" class="pull-right">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a
+                class="page-link"
+                href="#"
+                (click)="changePage(currentPage - 1); $event.preventDefault()"
+                >Previous</a
+              >
+            </li>
+
+            <li
+              class="page-item"
+              *ngFor="let page of [].constructor(totalPages); let idx = index"
+              [class.active]="currentPage === idx + 1"
+            >
+              <a class="page-link" href="#" (click)="changePage(idx + 1); $event.preventDefault()">
+                {{ idx + 1 }}
+              </a>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a
+                class="page-link"
+                href="#"
+                (click)="changePage(currentPage + 1); $event.preventDefault()"
+                >Next</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="custom-scrollbar">
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+            <th width="5%">Id</th>
+            <th width="10%" (click)="setSort('storeId')">
+              Store
+              <span *ngIf="sortKey === 'storeId'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="15%" (click)="setSort('categoryName')">
+              Name
+              <span *ngIf="sortKey === 'categoryName'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="35%" (click)="setSort('description')">
+              Description
+              <span *ngIf="sortKey === 'description'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="15%" (click)="setSort('createdAt')">
+              Created on
+              <span *ngIf="sortKey === 'createdAt'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th width="10%">Status</th>
+            <th width="10%">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of paginatedCategorys; index as i">
+            <td align="center">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+            <td>{{ item.storeId }}</td>
+            <td>{{ item.categoryName }}</td>
+            <td>{{ item.description }}</td>
+            <td align="center">{{ item.createdAt | date : 'dd-MM-yyyy' }}</td>
+            <td align="center">
+              <span
+                class="badge"
+                [ngClass]="{
+                  'badge-success': item.isActive === true,
+                  'badge-danger': !item.isActive && item.isDeleted === true
+                }"
+              >
+                {{
+                  item.isActive === true
+                    ? 'Active'
+                    : item.isDeleted === true
+                    ? 'Blocked'
+                    : 'Inactive'
+                }}
+              </span>
+            </td>
+            <td align="center">
+              <a
+                *ngIf="item.isActive == true"
+                href="#"
+                (click)="editItem(item); $event.preventDefault()"
+                title="Edit"
+              >
+                <i class="icon-pencil text-primary" style="cursor: pointer"></i>
+              </a>
+              <a
+                *ngIf="item.isActive === true"
+                href="#"
+                (click)="deleteItem(item); $event.preventDefault()"
+                title="Block"
+                class="ml-2"
+              >
+                <i class="icon-lock text-danger" style="cursor: pointer"></i>
+              </a>
+
+              <!-- Show Activate icon if item is not active -->
+              <a
+                *ngIf="item.isActive !== true"
+                href="#"
+                (click)="activateItem(item); $event.preventDefault()"
+                title="Activate"
+                class="ml-2"
+              >
+                <i class="icon-lock-open text-success" style="cursor: pointer"></i>
+              </a>
+              <!-- <a href="#" (click)="deleteItem(item.id); $event.preventDefault()" title="Delete" class="ml-2">
+            <i class="icon-trash text-danger" style="cursor: pointer;"></i>
+          </a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

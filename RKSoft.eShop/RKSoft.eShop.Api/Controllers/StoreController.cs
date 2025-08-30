@@ -1,11 +1,13 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using RKSoft.eShop.Api.Models;
 using RKSoft.eShop.App.DTOs;
 using RKSoft.eShop.App.Interfaces;
 using RKSoft.eShop.Domain.Entities;
 using System.Net;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace RKSoft.eShop.Api.Controllers
 {
@@ -111,7 +113,7 @@ namespace RKSoft.eShop.Api.Controllers
         }
 
         [HttpPut]
-        [Route("update", Name = "UpdatStore")]
+        [Route("update", Name = "UpdateStore")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -158,6 +160,48 @@ namespace RKSoft.eShop.Api.Controllers
                 _apiResponse.Success = true;
                 _apiResponse.StatusCode = HttpStatusCode.OK;
                 _apiResponse.Data = true;
+                return Ok(_apiResponse);
+            }
+            catch (Exception ex)
+            {
+                _apiResponse.Success = false;
+                _apiResponse.StatusCode = HttpStatusCode.InternalServerError;
+                _apiResponse.Errors = new List<string> { ex.Message };
+                return StatusCode((int)_apiResponse.StatusCode, _apiResponse);
+            }
+        }
+
+        [HttpPatch("{id}", Name = "PartialUpdateStore")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ApiResponse>> PartialUpdate(int id, [FromBody] JsonPatchDocument<StoreDTO> patchDoc)
+        {
+            if (patchDoc == null)
+                return BadRequest();
+
+            try
+            {
+                var store = await _storeService.GetStoreByIdAsync(s => s.Id == id);
+                if (store == null)
+                    return NotFound();
+
+                var storeDto = _mapper.Map<StoreDTO>(store);
+
+                // ✅ Apply patch to DTO
+                patchDoc.ApplyTo(storeDto, ModelState);
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                // ✅ Map DTO back to entity
+                var updatedStore = _mapper.Map<EStore>(storeDto);
+
+                // ✅ Just call UpdateStoreAsync, no need for extra PartialUpdateStoreAsync
+                _apiResponse.Data = await _storeService.PartialUpdateStoreAsync(updatedStore);
+                _apiResponse.Success = true;
+                _apiResponse.StatusCode = HttpStatusCode.OK;
+
                 return Ok(_apiResponse);
             }
             catch (Exception ex)

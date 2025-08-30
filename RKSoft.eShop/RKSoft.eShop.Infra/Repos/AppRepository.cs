@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using RKSoft.eShop.App.Interfaces;
 using RKSoft.eShop.Infra.Data;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace RKSoft.eShop.Infra.Repositories
@@ -31,6 +33,11 @@ namespace RKSoft.eShop.Infra.Repositories
         public async Task<List<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
+        }
+
+        public async Task<List<T>> GetAllActiveAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _dbSet.Where(filter).ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(Expression<Func<T, bool>> filter, bool useNoTracking = false)
