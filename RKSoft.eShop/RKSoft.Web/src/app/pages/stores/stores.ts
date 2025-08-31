@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, NgForm } from "@angular/forms";
-import { StoreItem, Storeservice } from "../services/storeservice";
+import { Storeservice } from "../services/storeservice";
+import { StoreItem } from "../../models/commonInterfaceModel";
 
 @Component({
   selector: "app-stores",

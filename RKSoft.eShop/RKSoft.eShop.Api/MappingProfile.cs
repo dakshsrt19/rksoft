@@ -12,7 +12,11 @@ namespace RKSoft.eShop.Api
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<EStore, StoreDTO>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>()
+                .ForMember(dest => dest.StoreName,
+                opt => opt.MapFrom(src => src.Store.StoreName))
+                .ReverseMap()
+                .ForMember(dest => dest.Store, opt => opt.Ignore());
         }
     }
 }

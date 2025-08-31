@@ -2,17 +2,12 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AppConfigService } from "./app-config.service";
 import { Observable } from "rxjs";
+import {
+  ApiResponse,
+  CategoryItem,
+  StoreItem,
+} from "../../models/commonInterfaceModel";
 
-export interface CategoryItem {
-  id: number;
-  categoryName: string;
-  description: string;
-  createdAt: Date;
-  updatedAt: Date;
-  isActive: boolean;
-  isDeleted: boolean;
-  storeId: number;
-}
 @Injectable({
   providedIn: "root",
 })
@@ -29,9 +24,23 @@ export class CategoryService {
   }
 
   // GET ALL
-  getAllcategorys(): Observable<CategoryItem[]> {
-    return this.http.get<CategoryItem[]>(
+  getAllCategories(): Observable<ApiResponse<CategoryItem[]>> {
+    return this.http.get<ApiResponse<CategoryItem[]>>(
       `${this.config.apiUrls.categories}/all`
+    );
+  }
+
+  getAllActiveStores(
+    storeInputs: StoreItem
+  ): Observable<ApiResponse<CategoryItem[]>> {
+    return this.http.get<ApiResponse<CategoryItem[]>>(
+      `${this.config.apiUrls.categories}/all`,
+      {
+        params: {
+          isActive: storeInputs.isActive.toString(),
+          isDeleted: storeInputs.isDeleted.toString(),
+        },
+      }
     );
   }
 

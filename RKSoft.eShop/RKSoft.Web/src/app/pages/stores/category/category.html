@@ -130,25 +130,25 @@
         <thead>
           <tr>
             <th width="5%">Id</th>
-            <th width="10%" (click)="setSort('storeId')">
+            <th width="20%" (click)="setSort('storeId')">
               Store
               <span *ngIf="sortKey === 'storeId'">
                 {{ sortDirection === 'asc' ? '▲' : '▼' }}
               </span>
             </th>
-            <th width="15%" (click)="setSort('categoryName')">
+            <th width="20%" (click)="setSort('categoryName')">
               Name
               <span *ngIf="sortKey === 'categoryName'">
                 {{ sortDirection === 'asc' ? '▲' : '▼' }}
               </span>
             </th>
-            <th width="35%" (click)="setSort('description')">
+            <th width="30%" (click)="setSort('description')">
               Description
               <span *ngIf="sortKey === 'description'">
                 {{ sortDirection === 'asc' ? '▲' : '▼' }}
               </span>
             </th>
-            <th width="15%" (click)="setSort('createdAt')">
+            <th width="10%" (click)="setSort('createdAt')">
               Created on
               <span *ngIf="sortKey === 'createdAt'">
                 {{ sortDirection === 'asc' ? '▲' : '▼' }}
@@ -161,7 +161,7 @@
         <tbody>
           <tr *ngFor="let item of paginatedCategorys; index as i">
             <td align="center">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
-            <td>{{ item.storeId }}</td>
+            <td>{{ item.storeName }}</td>
             <td>{{ item.categoryName }}</td>
             <td>{{ item.description }}</td>
             <td align="center">{{ item.createdAt | date : 'dd-MM-yyyy' }}</td>

@@ -52,6 +52,33 @@ namespace RKSoft.eShop.Api.Controllers
         }
 
         [HttpGet]
+        [Route("all_active", Name = "GetAllActiveStores")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<ActionResult<IEnumerable<ApiResponse>>> GetAllActiveStores([FromQuery] bool isActive = true,
+    [FromQuery] bool isDeleted = false)
+        {
+            try
+            {
+                var stores = await _storeService.GetAllActiveStoreAsync(c => c.IsActive == isActive && c.IsDeleted == isDeleted);
+                _apiResponse.Data = _mapper.Map<List<StoreDTO>>(stores);
+                _apiResponse.Success = true;
+                _apiResponse.StatusCode = HttpStatusCode.OK;
+
+                return Ok(_apiResponse);
+            }
+            catch (Exception ex)
+            {
+                _apiResponse.Success = false;
+                _apiResponse.StatusCode = HttpStatusCode.InternalServerError;
+                _apiResponse.Errors = new List<string> { ex.Message };
+                return StatusCode((int)_apiResponse.StatusCode, _apiResponse);
+            }
+        }
+
+        [HttpGet]
         [Route("{id:int}", Name = "GetStoreById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

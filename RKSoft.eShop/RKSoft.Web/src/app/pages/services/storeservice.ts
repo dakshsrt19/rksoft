@@ -2,16 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppConfigService } from './app-config.service';
+import { StoreItem } from '../../models/commonInterfaceModel';
 
-export interface StoreItem {
-  id: number;
-  storeName: string;
-  description: string; // ✅ description should be string, not number
-  createdAt: Date;
-  updatedAt: Date;
-  isActive: boolean;
-  isDeleted: boolean;
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +24,12 @@ export class Storeservice {
   }
 
    // GET ALL
-  getAllActiveStores(isActive: boolean): Observable<StoreItem[]> {
-    return this.http.get<StoreItem[]>(`${this.config.apiUrls.stores}/all`, {
-      params: { isActive: isActive.toString() }
+  getAllActiveStores(storeInputs: StoreItem): Observable<StoreItem[]> {
+    return this.http.get<StoreItem[]>(`${this.config.apiUrls.stores}/all_active`, {
+      params: {
+        isActive: storeInputs.isActive.toString(),
+        isDeleted: storeInputs.isDeleted.toString()
+      }
     });
   }
 
@@ -58,3 +54,5 @@ export class Storeservice {
     return this.http.delete(`${this.config.apiUrls.stores}/delete/${id}`);
   }
 }
+
+

@@ -1,8 +1,10 @@
+import { StoreItem } from './../../../models/commonInterfaceModel';
 import { Component, OnInit } from '@angular/core';
-import { CategoryItem, CategoryService } from '../../services/category.service';
+import { CategoryService } from '../../services/category.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Storeservice } from '../../services/storeservice';
+import { CategoryItem} from '../../../models/commonInterfaceModel';
 
 @Component({
   selector: 'app-category',
@@ -10,12 +12,12 @@ import { Storeservice } from '../../services/storeservice';
   templateUrl: "./category.html",
   styleUrls: ["./category.scss"]
 })
+
 export class Category implements OnInit {
   _categories: CategoryItem[] = [];
   searchTerm: string = "";
   currentPage: number = 1;
   pageSize: number = 10; // change as needed
-  isActive: boolean = true;
   _stores: any[] =[];
 
   sortKey: keyof CategoryItem | "" = ""; // e.g., 'CategoryName', 'description'
@@ -26,11 +28,16 @@ export class Category implements OnInit {
     description: ""
   };
 
+   _storeInputs: Partial<StoreItem> = {
+    isActive: true,
+    isDeleted: false
+  };
+
   isEditMode: boolean = false;
   constructor(private _categoryService: CategoryService, private _storeService:Storeservice) {}
 
   ngOnInit(): void {
-    this.getAllStoress();
+    this.getAllActiveStoreItems();
     this.getAllItems();
   }
 
@@ -39,6 +46,7 @@ export class Category implements OnInit {
 
     return this._categories.filter(
       (item) =>
+        item.storeName?.toLowerCase().includes(term) ||
         item.categoryName?.toLowerCase().includes(term) ||
         item.description?.toLowerCase().includes(term) ||
         item.createdAt?.toString().toLowerCase().includes(term) ||
@@ -51,8 +59,8 @@ export class Category implements OnInit {
     );
   }
 
-getAllStoress(): void {
-    this._storeService.getAllActiveStores(this.isActive).subscribe((response: any) => {
+getAllActiveStoreItems(): void {
+    this._storeService.getAllActiveStores(this._storeInputs as StoreItem).subscribe((response: any) => {
       if (Array.isArray(response)) {
         this._stores = response;
       } else if (Array.isArray(response.data)) {
@@ -61,22 +69,28 @@ getAllStoress(): void {
         console.error("Unexpected response format:", response);
         this._stores = [];
       }
-      console.log("api data", this._stores);
+      console.log("api active store data", this._stores);
     });
   }
+
   getAllItems(): void {
-    this._categoryService.getAllcategorys().subscribe((response: any) => {
-      if (Array.isArray(response)) {
-        this._categories = response;
-      } else if (Array.isArray(response.data)) {
+  this._categoryService.getAllCategories().subscribe({
+    next: (response) => {
+      if (response.success && Array.isArray(response.data)) {
         this._categories = response.data;
       } else {
         console.error("Unexpected response format:", response);
         this._categories = [];
       }
-      console.log("api data", this._categories);
-    });
-  }
+      console.log("API data:", this._categories);
+    },
+    error: (err) => {
+      console.error("Error fetching categories:", err);
+      this._categories = [];
+    }
+  });
+}
+
   onSubmit(form: NgForm) {
     if (!form.valid) return;
     if (this.isEditMode && this._category.id) {

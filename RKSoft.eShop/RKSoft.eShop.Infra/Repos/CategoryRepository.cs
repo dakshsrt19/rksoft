@@ -1,4 +1,6 @@
-﻿using RKSoft.eShop.App.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using RKSoft.eShop.App.DTOs;
+using RKSoft.eShop.App.Interfaces;
 using RKSoft.eShop.Domain.Entities;
 using RKSoft.eShop.Infra.Data;
 using RKSoft.eShop.Infra.Repositories;
@@ -11,6 +13,13 @@ namespace RKSoft.eShop.Infra.Repos
         public CategoryRepository(AppDbContext appDbContext) : base(appDbContext)
         {
             _appDbContext = appDbContext;
+        }
+
+        public async Task<List<Category>> GetAllWithStoreAsync()
+        {
+            return await _appDbContext.Categories
+                .Include(c => c.Store) 
+                .ToListAsync();
         }
     }
 }

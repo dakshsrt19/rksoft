@@ -32,8 +32,9 @@ namespace RKSoft.eShop.Api.Controllers
         {
             try
             {
-                var Categorys = await _categoryService.GetAllCategoryAsync();
-                _apiResponse.Data = _mapper.Map<List<CategoryDto>>(Categorys);
+                var categories = await _categoryService.GetAllCategoryAsync();
+                var dtoList = _mapper.Map<List<CategoryDto>>(categories);
+                _apiResponse.Data = dtoList;
                 _apiResponse.Success = true;
                 _apiResponse.StatusCode = HttpStatusCode.OK;
 

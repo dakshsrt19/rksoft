@@ -23,7 +23,7 @@ namespace RKSoft.eShop.App.Services
 
         public async Task<List<Category>> GetAllCategoryAsync()
         {
-            return await _categoryRepository.GetAllAsync();
+            return await _categoryRepository.GetAllWithStoreAsync();
         }
         public async Task<List<Category>> GetAllActiveCategoryAsync(Expression<Func<Category, bool>> filter)
         {

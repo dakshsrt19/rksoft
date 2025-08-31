@@ -24,6 +24,8 @@ export const routes: Routes = [
       {
         path: 'category',
         component: Category,
+        canActivate: [RoleGuard],
+        data: { roles: ['Admin'] }
       }
     ]
   },
