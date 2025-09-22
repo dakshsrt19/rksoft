@@ -1,13 +1,50 @@
-<div class="contact-form-wrapper">
-  <div class="container div-outer">
-    <div class="row div-header">
-      <div class="col-md-6 col-xs-12"><h4>Add New Store</h4></div>
+
+
+ <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Stores</h4>
+                    <p class="card-description">Add New Store </p>
+                    <form class="contact-form" #storeForm="ngForm" (ngSubmit)="onSubmit(storeForm)">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Store Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Store Name" required [(ngModel)]="store.storeName" />
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Description</label>
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description" required [(ngModel)]="store.description" />
+                <div class="help-block with-errors"></div>
+                      </div>
+
+                     <div class="col-md-3">
+              <div class="form-label"><br /></div>
+              <button type="submit" class="btn btn-primary" [disabled]="storeForm.invalid">
+                {{ store.id ? 'Update' : 'Save' }}
+              </button>
+              <div id="msgSubmit" class="h3 text-center hidden"></div>
+              <div class="clearfix"></div>
+               <button class="btn btn-light">Cancel</button>
+            </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+<div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Stores</h4>
+      <div class="col-md-6 col-xs-12 page-description"><h4>Add New Store</h4></div>
       <div class="col-md-6 col-xs-12"><h5 class="pull-right"></h5></div>
-    </div>
-    <div class="div-content">
+
+    <div class="div-content table">
       <div class="col-md-12">
         <form class="contact-form" #storeForm="ngForm" (ngSubmit)="onSubmit(storeForm)">
-          <div class="row">
+          <div class="row ">
             <div class="col-md-3">
               <div class="form-group">
                 <div class="form-lable">Store Name :</div>
@@ -51,6 +88,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <div class="contact-info div-break">

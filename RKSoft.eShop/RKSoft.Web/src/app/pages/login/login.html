@@ -1,27 +1,27 @@
-
-<!-- Start Content -->
-<div id="content">
-  <div class="container mt-100">
-    <div class="col-md-12 col-lg-4 offset-lg-3"></div>
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-4 offset-lg-3">
-        <div class="login">
-          <div class="login-form-container">
-            <div class="login-text">
-              <h3>Login</h3>
-              <p>Please log in using your account.</p>
-            </div>
+ <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <div class="brand-logo">
+                  <a class="navbar-brand" href="['/dashboard']">
+               <img src="assets/images/dsrlogo.png" alt="RKSoft">
+              </a>
+                </div>
+                <h4>Hello! let's get started</h4>
+                <h6 class="font-weight-light">Sign in to continue.</h6>
             <!-- Login Form Start -->
-            <form class="login-form" #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate>
+            <form class="pt-3" #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate>
               <div class="form-group">
-                <div class="controls">
+
                   <input
                     type="text"
                     id="username"
                     name="username"
                     [(ngModel)]="username"
                     required
-                    class="form-control"
+                    class="form-control form-control-lg"
                     placeholder="Enter username"
                     #emailRef="ngModel"
                   />
@@ -31,10 +31,8 @@
                     <!-- <div *ngIf="emailRef.errors?.['email']">Enter a valid email.</div> -->
                   </div>
                 </div>
-              </div>
 
               <div class="form-group">
-                <div class="controls">
                   <input
                     type="password"
                     id="password"
@@ -42,7 +40,7 @@
                     [(ngModel)]="password"
                     required
                     minlength="6"
-                    class="form-control"
+                    class="form-control form-control-lg"
                     placeholder="Password"
                     #passwordRef="ngModel"
                     autocomplete="current-password"
@@ -52,17 +50,16 @@
                     <div *ngIf="passwordRef.errors?.['minlength']">Password must be at least 6 characters.</div>
                   </div>
                 </div>
-              </div>
 
               <div *ngIf="errorMessage" class="text-danger mb-3">{{ errorMessage }}</div>
 
               <div class="button-box">
                 <div class="login-toggle-btn">
-                  <a href="#">Forgot Password?</a>
+
                 </div>
                 <button
                   type="submit"
-                  class="btn btn-common log-btn"
+                 class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
                   [disabled]="loginForm.invalid"
                 >
                   Sign in
@@ -74,7 +71,5 @@
         </div>
       </div>
     </div>
-    <div class="col-md-12 col-lg-4 offset-lg-3"></div>
   </div>
 </div>
-<!-- End Content -->

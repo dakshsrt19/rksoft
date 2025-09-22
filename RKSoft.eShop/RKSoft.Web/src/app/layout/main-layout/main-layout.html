@@ -1,7 +1,18 @@
-<div class=".layout-container">
-<app-header></app-header>
-<div class="content-area">
-<router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+<app-header (toggleSidebar)="sidebarOpen = !sidebarOpen"></app-header>
+
+<div class="layout-wrapper">
+  <!-- Sidebar (collapsible on small screens) -->
+  <div class="sidebar-wrapper" [class.open]="sidebarOpen">
+    <app-sidebar class="sidebar"></app-sidebar>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="container-scroller">
+        <div class="content-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+        <app-footer class="footer"></app-footer>
+    </div>
+  </div>
 </div>

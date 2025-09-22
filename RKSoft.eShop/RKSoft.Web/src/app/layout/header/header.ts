@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../pages/services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -9,10 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.scss'
 })
 export class Header implements OnInit {
+   @Output() toggleSidebar = new EventEmitter<void>();
 user: any;
 loggedIn: boolean = false;
 constructor(private authService: AuthService, private router: Router  ) {}
 
+onToggleSidebar() {
+    this.toggleSidebar.emit();
+  }
   ngOnInit(): void {
     this.user = this.authService.getUserDetails();
     if(this.user != null)
