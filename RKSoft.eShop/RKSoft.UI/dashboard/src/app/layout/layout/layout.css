@@ -1,0 +1,32 @@
+/* Reset margin and padding for these elements and make them full height */
+html, body, #top {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container with flex layout filling viewport height */
+.main {
+  display: flex;
+  height: 100vh; /* fill viewport height */
+  overflow: hidden;
+}
+
+/* Sidebar element styling */
+app-sidebar {
+  min-width: 55px;
+  max-width: 250px;
+  flex-shrink: 0;
+  flex-basis: 250px; /* default expanded width */
+}
+
+/* Main content area takes remaining space */
+router-outlet {
+  flex-grow: 1;
+  display: block;
+}
+
+/* When main container has 'collapsed' class, shrink sidebar */
+.main.collapsed app-sidebar {
+  flex-basis: 55px;
+}
